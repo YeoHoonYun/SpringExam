@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.zerock.domain.SampleDTO;
+import org.zerock.domain.SampleDTOList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,4 +68,11 @@ public class SampleController {
         return "ex02Array";
     }
 
+    //http://localhost:8080/sample/ex02Bean?list%5B0%5D.name=aaa&list%5B1%5D.name=BBB&list%5B2%5D.name=CCC
+    @GetMapping("/ex02Bean")
+    public String ex02Bean(SampleDTOList list){
+        System.out.println("list dtos: " + list);
+
+        return "ex02Bean";
+    }
 }
